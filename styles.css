@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #big-container {
+    width: 250px;
+    padding: 2.5%;
+  }
+  
+  #message-input {
+    width: 100%; /* Subtract padding from the width */
+    padding: 2.5%;
+  }
+  
+  #chat-box{
+    width: 100%; /* Subtract padding from the width */
+    padding: 2.5%;
+  }
+
+  #buttons-container{
+    padding-top: 2.5%;
+  }
+
+  #post-message{
+    color: white;
+    background-color: darkgreen;  
+  }
+
+  #clear-messages{
+    color: white;
+    background-color: crimson;
+  }
+  
