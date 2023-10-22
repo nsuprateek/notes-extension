@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Chat Extension</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Chat Extension</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
 </head>
-<body>
-  <div id="big-container">
-    <div id="chat-box"></div>
-    <input id="message-input" type="text" placeholder="Type a note and press Enter">
-    <div id="buttons-container">
-      <button id="post-message" class="custom-button">Post Note</button> <!-- Add a button element -->
-      <button id="clear-messages" class="custom-button">Clear All Notes</button> <!-- Add a button element -->
+
+<body style="background-color: #55a1ff;">
+    <div class="big-container">
+
+        <div id="chat-box" class="notes-container"></div>
+
+        <div class="input-box button-container">
+            <div class="left-align">
+                <input id="message-input" type="text" placeholder="Type a note and">
+            </div>
+            <div class="right-align">
+                <button class="round-button"><i class="bi bi-check2-all"></i></button>
+            </div>
+        </div>
+        <!-- <button class = 'round-button'>+</button> -->
+
+        
+        <div class="button-container">
+            <div class="left-align">
+                <button id="post-message">Post</button>
+            </div>
+            <div class="right-align">
+                <button id="clear-messages" class="round-button"><i class="bi bi-trash-fill"></i></button>
+                <button class="round-button"><i class="bi bi-gear-fill"></i></button>
+            </div>
+        </div>
+            <!-- <button id="options" class="gg-options custom-button"></button> -->
     </div>
-  </div>
-  <script src="popup.js"></script>
+    <script src="popup.js"></script>
 </body>
+
 </html>
