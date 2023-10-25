@@ -8,11 +8,19 @@ function scrollToBottom() {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Function to add a message to the chat box
 function addMessageToChat(message, timestamp, url) {
-    let note = document.createElement('div');
-    note.className = 'note';
-    note.innerHTML += `<p><strong>${timestamp}<br></strong> <i>(${url})<br></i>n${message}</p><br>`;
+    const noteTemplate = document.getElementById('note-template').content.querySelector('.note');
+    let note = noteTemplate.cloneNode(true);
+
+    const time = note.querySelector('.time');
+    const link = note.querySelector('.note-url');
+    const msg = note.querySelector('.note-body');
+    time.textContent = timestamp;
+    link.textContent = url;
+    msg.textContent = message;
+    // note.className = 'note';
+    // note.innerHTML += `<p><strong>${timestamp}<br></strong> <i>(${url})<br></i>n${message}</p><br>`;
+    console.log(note);
     chatBox.appendChild(note);
     messageInput.value = '';
     scrollToBottom();
@@ -27,6 +35,7 @@ function postMessage(message) {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             const url = tabs[0] ? tabs[0].url : 'N/A';
             addMessageToChat(message, timestamp, url);
+            console.log(url.split('?')[0]);
 
             // Send the message, timestamp, and URL to the service worker to store
             chrome.runtime.sendMessage({ action: 'addMessage', message, timestamp, url });
